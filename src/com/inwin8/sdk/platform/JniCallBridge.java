@@ -94,6 +94,12 @@ public class JniCallBridge {
 		return JniCallBridgeEnum.NOERR.ordinal();
 	}
 	
-	
+	public void regFunc(String funcName, IJniCallFunc funcObj) {
+		if (null == funcName || null == funcObj) {
+			System.out.print("maybe params is null");
+			return;
+		}
+		m_cacheFunc.put(funcName, funcObj);
+	}
 
 }
