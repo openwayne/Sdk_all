@@ -85,6 +85,12 @@ public class JniCallBridge {
 		if (null == jniFunc) {
 			return JniCallBridgeEnum.NOFUNC.ordinal();
 		}
+
+		try {
+			jniFunc.call(EasyTools.getFieldValueByName("params", jsonObj));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return JniCallBridgeEnum.NOERR.ordinal();
 	}
 	
